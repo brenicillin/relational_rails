@@ -6,7 +6,6 @@ class CreateCars < ActiveRecord::Migration[5.2]
       t.boolean :for_sale
       t.integer :cost
       t.references :dealership, foreign_key: true
-
       t.timestamps
     end
   end
