@@ -1,8 +1,8 @@
 <head><h1>All Cars</h1></head>
 <br>
 <% @cars.each do |car| %>
-<h2><%= car.makemodel %></h2>
-<p>MPG:<%= car.mpg %></p>
-<p>For Sale? <%= car.for_sale %></p>
-<p>Price:<%= car.cost %></p>
+<ol><h2><%= car.makemodel %></h2></ol>
+<li>MPG:<%= car.mpg %></li>
+<li>For Sale?: <%= car.for_sale %></li>
+<li>Price:<%= car.cost %></li>
 <% end %>

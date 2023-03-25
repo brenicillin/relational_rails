@@ -4,7 +4,11 @@ class DealershipsController < ApplicationController
   end
 
   def show
-    require 'pry'; binding.pry
     @dealership = Dealership.find(params[:id])
+  end
+
+  def show_cars
+    @dealership = Dealership.find(params[:id])
+    @cars = @dealership.cars
   end
 end

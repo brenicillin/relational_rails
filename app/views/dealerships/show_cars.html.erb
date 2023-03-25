@@ -1,0 +1,8 @@
+<h1><%= @dealership.name %>
+
+<% @cars.each do |car| %>
+<h2><ol><%= car.makemodel %> </ol></h2>
+<p><li><%= car.mpg %></li></p>
+<p><li><%= car.for_sale %></li></p>
+<p><li> <%= car.cost %></li></p>
+<% end %>
