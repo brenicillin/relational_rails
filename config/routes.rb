@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/dealerships/:id/edit", to: "dealerships#edit"
 
   get "/dealerships/:id/cars", to: "dealerships#show_cars"
+  get "/dealerships/:id/cars/new", to "cars#new"
   
 
 end

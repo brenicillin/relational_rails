@@ -28,11 +28,11 @@ class DealershipsController < ApplicationController
 
   def update
     dealership = Dealership.find(params[:id])
-    dealership.update(
+    dealership.update({
       name: params[:dealership][:name],
       has_stock: params[:dealership][:has_stock],
       year_est: params[:dealership][:year_est]
-    )
+    })
     dealership.save
     redirect_to "dealership/#{dealership.id}"
   end
