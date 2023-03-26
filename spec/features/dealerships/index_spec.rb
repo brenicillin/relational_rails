@@ -72,8 +72,28 @@ RSpec.describe "/dealerships", type: :feature do
       click_button "submit"
       
       expect(current_path).to eq("/dealerships")
-      save_and_open_page
       expect(page).to have_content("Toyota Carlsbad")
+    end
+
+    it 'can edit an existing dealership' do
+      visit "/dealerships/#{@dealership_1.id}"
+      click_link "Edit"
+
+      expect(current_path).to eq("/dealerships/#{@dealership_1.id}/edit")
+      expect(page).to have_field("dealership[name]")
+      expect(page).to have_field("dealership[has_stock]")
+      expect(page).to have_field("dealership[year_est]")
+
+      fill_in "dealership[name]", with: "Riverview Honda"
+      choose "true"
+      fill_in "dealership[year_est]", with: "1994"
+      click_button "submit"
+
+      expect(current_path).to eq("/dealerships/#{@dealership_1.id}")
+      expect(page).to have_content("Riverview Honda")
+      expect(page).to have_content("1994")
+      expect(page).to_not have_content("Checkered Flag Honda")
+      expect(page).to_not have_content("1985")
     end
   end
 end
