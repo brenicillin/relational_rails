@@ -1,8 +1,9 @@
-<head><h1>All Cars</h1></head>
-<br>
+<head><h1>All Cars</h1><br></head>
+<p><%= link_to "All Dealerships", dealerships_path %></p><br>
+<p><%= link_to "All Cars", cars_path %></p><br>
 <% @cars.each do |car| %>
 <ol><h2><%= car.makemodel %></h2></ol>
-<li>MPG:<%= car.mpg %></li>
 <li>For Sale?: <%= car.for_sale %></li>
-<li>Price:<%= car.cost %></li>
+<li>MPG: <%= car.mpg %></li>
+<li>Price: <%= car.cost %></li>
 <% end %>

@@ -1,8 +1,11 @@
-<h1><%= @dealership.name %>
+<head><p><%= link_to "All Dealerships", dealerships_path %></p><br>
+<p><%= link_to "All Cars", cars_path %></p></head>
+<br>
+<h1><%= @dealership.name %></h1>
 
 <% @cars.each do |car| %>
 <h2><ol><%= car.makemodel %> </ol></h2>
-<p><li><%= car.mpg %></li></p>
-<p><li><%= car.for_sale %></li></p>
-<p><li> <%= car.cost %></li></p>
+<p><li>MPG: <%= car.mpg %></li></p>
+<p><li>For Sale?: <%= car.for_sale %></li></p>
+<p><li>Cost: <%= car.cost %></li></p>
 <% end %>

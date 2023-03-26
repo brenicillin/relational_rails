@@ -1,5 +1,8 @@
 <head><h1>All Dealerships</h1></head>
 <br>
+<p><%= link_to "All Dealerships", dealerships_path %></p><br>
+<p><%= link_to "All Cars", cars_path %></p><br>
 <% @dealerships.each do |dealership| %>
-<h2><%= dealership.name %><h2><br>
+<h2><%= dealership.name %></h2><br> <p>Record Created at: <%= dealership.created_at %><br>
 <% end %>
+<a href="/dealerships/new">Create Dealership</a>
