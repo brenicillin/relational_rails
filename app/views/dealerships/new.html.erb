@@ -1,0 +1,13 @@
+<form action="/dealerships" method="post">
+<p>Enter Dealership Information</p>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <label for="dealership[name]">Dealership Name:</label>
+  <input type="text" name="dealership[name]"><br>
+  <label for="dealership[has_stock]">Inventory in stock?</label><br>
+  <input type="radio" id="true" name="dealership[has_stock]" value="true">
+  <label for="true">TRUE</label>
+  <input type="radio" id="false" name="dealership[has_stock]" value="false">
+  <label for="false">FALSE</label><br>
+  <label for="dealership[year_est]">Year Established:</label>
+  <input type="text" name="dealership[year_est]" >
+  <input type="submit" name="submit" />
