@@ -6,4 +6,6 @@
 <h1><%= @dealership.name %></h1>
 <p>Year Established: <%= @dealership.year_est %></p>
 <p>Cars in stock?:<%=@dealership.has_stock %></p>
-<p>Stock available: <%= @dealership.cars.size %></p>
+<p>Stock available: <%= @dealership.cars.size %></p></br>
+
+<a href="/dealerships/<%= @dealership.id %>/edit">Edit</a>
