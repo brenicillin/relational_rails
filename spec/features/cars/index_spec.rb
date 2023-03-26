@@ -11,7 +11,7 @@ RSpec.describe "/cars", type: :feature do
     it "displays all attributes of all cars" do
 
       visit "/cars"
-      save_and_open_page
+
       expect(page).to have_content("#{@car_1.makemodel}")
       expect(page).to have_content("#{@car_1.mpg}")
       expect(page).to have_content("#{@car_1.for_sale}")
