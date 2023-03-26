@@ -87,9 +87,8 @@ RSpec.describe "/dealerships", type: :feature do
       fill_in "dealership[name]", with: "Riverview Honda"
       choose "true"
       fill_in "dealership[year_est]", with: "1994"
-      save_and_open_page
       click_button "submit"
-      require 'pry'; binding.pry
+
       expect(current_path).to eq("/dealerships/#{@dealership_1.id}")
       expect(page).to have_content("Riverview Honda")
       expect(page).to have_content("1994")
