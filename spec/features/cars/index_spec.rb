@@ -2,17 +2,16 @@ require "rails_helper"
 
 RSpec.describe "/cars", type: :feature do
   before(:each) do
-    @dealership = Dealership.create!(name: "Test Dealership", has_stock: true, cars_available: 2)
+    @dealership = Dealership.create!(name: "Test Dealership", has_stock: true, year_est: 1999)
     @car_1 = @dealership.cars.create!(makemodel: "Ford Fusion", mpg: 27.5, for_sale: true, cost:12000)
     @car_2 = @dealership.cars.create!(makemodel: "Hyundai Elantra", mpg: 26, for_sale: true, cost: 12500)
   end
 
   describe "as a visitor, when I visit the car index page" do
-    #User Story 3 - Child Index
     it "displays all attributes of all cars" do
 
       visit "/cars"
-      # save_and_open_page
+      save_and_open_page
       expect(page).to have_content("#{@car_1.makemodel}")
       expect(page).to have_content("#{@car_1.mpg}")
       expect(page).to have_content("#{@car_1.for_sale}")
