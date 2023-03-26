@@ -17,12 +17,27 @@ class DealershipsController < ApplicationController
   end
 
   def create
-    dealership = Dealership.new({
+    @dealership = Dealership.new({
       name: params[:dealership][:name],
       has_stock: params[:dealership][:has_stock],
       year_est: params[:dealership][:year_est]
     })
-    dealership.save
+    @dealership.save
     redirect_to '/dealerships'
+  end
+
+  def update
+    dealership = Dealership.find(params[:id])
+    dealership.update(
+      name: params[:dealership][:name],
+      has_stock: params[:dealership][:has_stock],
+      year_est: params[:dealership][:year_est]
+    )
+    dealership.save
+    redirect_to "dealership/#{dealership.id}"
+  end
+
+  def edit
+    @dealership = Dealership.find(params[:id])
   end
 end
