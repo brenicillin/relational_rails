@@ -10,4 +10,4 @@
 <p><li>Cost: <%= car.cost %></li></p>
 <% end %>
 
-<%= link_to "Create Car", cars_path %>
+<%= link_to "Create Car", "/dealerships/#{@dealership.id}/cars/new" %>

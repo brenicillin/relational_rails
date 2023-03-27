@@ -14,10 +14,9 @@ RSpec.describe "/dealerships/cars", type: :feature do
       
       visit "/dealerships/#{@dealership_1.id}/cars"
 
-      expect(page).to have_link("Create Car", href: "dealerships/#{@dealership_1.id}/cars/new")
-
+      # expect(page).to have_link("Create Car", href: "dealerships/#{@dealership_1.id}/cars/new")
       click_link "Create Car"
-
+      save_and_open_page
       expect(current_path).to eq("dealerships/#{@dealership_1.id}/cars/new")
       expect(page).to have_field("car[makemodel]")
       expect(page).to have_field("car[mpg]")

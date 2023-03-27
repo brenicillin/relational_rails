@@ -34,7 +34,7 @@ class DealershipsController < ApplicationController
       year_est: params[:dealership][:year_est]
     })
     dealership.save
-    redirect_to "dealership/#{dealership.id}"
+    redirect_to "/dealerships/#{dealership.id}"
   end
 
   def edit
