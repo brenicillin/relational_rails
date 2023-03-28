@@ -5,4 +5,5 @@
 <p>Make/Model:<%= @car.makemodel %></p><br>
 <p>MPG: <%= @car.mpg %></p><br>
 <p>For Sale? <%= @car.for_sale %></p><br>
-<p>Yours for only: <%= @car.cost %></p>
+<p>Yours for only: <%= @car.cost %></p><br>
+<%= link_to "Update Car", "/cars/#{@car.id}/edit" %>

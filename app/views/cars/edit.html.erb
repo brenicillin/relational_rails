@@ -1,0 +1,16 @@
+<%= link_to "Dealership Index", "/dealerships" %><br>
+<%= link_to "Cars Index", "/cars" %><br>
+
+<%= form_with url: "/cars/#{@car.id}", method: :patch, local: true do |f| %>
+  <%= f.label :makemodel %>
+  <%= f.text_field :makemodel %><br>
+  <%= f.label :mpg %>
+  <%= f.text_field :mpg %><br>
+  <%= f.label :cost %>
+  <%= f.text_field :cost %><br>
+  <%= f.radio_button :for_sale, "true", checked: @car.for_sale %>
+  <%= f.label :for_sale_true, "True" %>
+  <%= f.radio_button :for_sale, "false", checked: !@car.for_sale %> 
+  <%= f.label :for_sale_false, "False" %><br>
+  <%= f.submit "Update Car" %>
+<% end %>

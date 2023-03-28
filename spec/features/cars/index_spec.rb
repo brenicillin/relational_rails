@@ -35,4 +35,37 @@ RSpec.describe "/cars", type: :feature do
     expect(page).to_not have_content("#{@car_2.makemodel}")
     end
   end
+
+  describe "as a visitor, when I visit a child show page" do
+    it 'sees a link to update that child' do
+      visit "/cars/#{@car_1.id}"
+
+      expect(page).to have_link "Update Car"
+      click_link "Update Car"
+      expect(current_path).to eq("/cars/#{@car_1.id}/edit")
+      expect(page).to have_field("makemodel")
+      expect(page).to have_field("mpg")
+      expect(page).to have_field("cost")
+    end
+
+    it 'properly updates information and redirects to show page' do
+      
+      visit "/cars/#{@car_1.id}"
+      click_link "Update Car"
+
+      fill_in "makemodel", with: "Ford Fiesta"
+      fill_in "mpg", with: "29"
+      choose "for_sale_true"
+      fill_in "cost", with: "14000"
+      click_button "Update Car"
+
+      expect(current_path).to eq("/cars/#{@car_1.id}")
+      expect(page).to have_content("Ford Fiesta")
+      expect(page).to have_content("29")
+      expect(page).to have_content("14000")
+      expect(page).to_not have_content("Ford Fusion")
+      expect(page).to_not have_content("27.5")
+      expect(page).to_not have_content("12000")
+    end
+  end
 end
