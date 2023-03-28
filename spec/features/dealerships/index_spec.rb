@@ -95,5 +95,13 @@ RSpec.describe "/dealerships", type: :feature do
       expect(page).to_not have_content("Checkered Flag Honda")
       expect(page).to_not have_content("1985")
     end
+
+    it "can edit existing dealerships from a link on the dealership index page" do
+      visit "/dealerships"
+
+      click_link "Edit #{@dealership_1.name}"
+
+      expect(current_path).to eq("/dealerships/#{@dealership_1.id}/edit")
+    end
   end
 end

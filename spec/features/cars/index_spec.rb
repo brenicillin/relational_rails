@@ -5,6 +5,7 @@ RSpec.describe "/cars", type: :feature do
     @dealership = Dealership.create!(name: "Test Dealership", has_stock: true, year_est: 1999)
     @car_1 = @dealership.cars.create!(makemodel: "Ford Fusion", mpg: 27.5, for_sale: true, cost:12000)
     @car_2 = @dealership.cars.create!(makemodel: "Hyundai Elantra", mpg: 26, for_sale: true, cost: 12500)
+    @car_3 = @dealership.cars.create!(makemodel: "Geo Metro", mpg: 13, for_sale: false, cost: 3600)
   end
 
   describe "as a visitor, when I visit the car index page" do
@@ -66,6 +67,16 @@ RSpec.describe "/cars", type: :feature do
       expect(page).to_not have_content("Ford Fusion")
       expect(page).to_not have_content("27.5")
       expect(page).to_not have_content("12000")
+    end
+  end
+
+  describe "as a visitor" do
+    it "child index only shows true records" do
+      visit "/cars"
+
+      expect(page).to have_content("Ford Fusion")
+      expect(page).to have_content("Hyundai Elantra")
+      expect(page).to_not have_content("Geo Metro")
     end
   end
 end
