@@ -1,16 +1,16 @@
-<%= link_to "Dealership Index", "/dealerships"%>
+<%= link_to "Dealership Index", "/dealerships"%><br>
 <%= link_to "Cars Index", "/cars"%>
 
 <%= form_with url: "/dealerships/#{@dealership.id}/cars/new", method: :post, local: true do |form| %>
-<%= form.label :makemodel %>
-<%= form.text_field :name %>
-<%= form.label :mpg %>
-<%= form.text_field :mpg %>
-<%= form.label :cost %>
-<%= form.text_field :cost %>
-<%= form.radio_button for_sale, "true", checked: @car.for_sale %>
-<%= form.label for_sale_true, "True" %>
-<%= form.radio_button for_sale, "false", checked: !@car.for_sale %> 
-<%= form.label for_sale_false, "False" %>
-<%= form.submit "Create Car" %>
-<%= end %>
+  <%= form.label :makemodel %>
+  <%= form.text_field :makemodel %><br>
+  <%= form.label :mpg %>
+  <%= form.text_field :mpg %><br>
+  <%= form.label :cost %>
+  <%= form.text_field :cost %><br>
+  <%= form.radio_button :for_sale, "true", checked: @car.for_sale %>
+  <%= form.label :for_sale_true, "True" %>
+  <%= form.radio_button :for_sale, "false", checked: !@car.for_sale %> 
+  <%= form.label :for_sale_false, "False" %><br>
+  <%= form.submit "Create Car" %>
+<% end %>

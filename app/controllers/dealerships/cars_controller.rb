@@ -5,14 +5,14 @@ class Dealerships::CarsController < ApplicationController
   end
 
   def new
-    require 'pry'; binding.pry
     @dealership = Dealership.find(params[:id])
+    @car = Car.new
   end
 
   def create
     @dealership = Dealership.find(params[:id])
-    car = dealership.cars.create!(car_params)
-    redirect to "/dealerships/#{dealership.id}/cars"
+    @car = @dealership.cars.create!(car_params)
+    redirect_to "/dealerships/#{params[:id]}/cars"
   end
 
   private

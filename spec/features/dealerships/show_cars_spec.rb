@@ -16,12 +16,27 @@ RSpec.describe "/dealerships/cars", type: :feature do
 
       # expect(page).to have_link("Create Car", href: "dealerships/#{@dealership_1.id}/cars/new")
       click_link "Create Car"
+      expect(current_path).to eq("/dealerships/#{@dealership_1.id}/cars/new")
       save_and_open_page
-      expect(current_path).to eq("dealerships/#{@dealership_1.id}/cars/new")
-      expect(page).to have_field("car[makemodel]")
-      expect(page).to have_field("car[mpg]")
-      expect(page).to have_field("car[for_sale]")
-      expect(page).to have_field("car[cost]")
+      expect(page).to have_field("makemodel")
+      expect(page).to have_field("mpg")
+      expect(page).to have_field("cost")
+    end
+
+    it "creates a car that belongs to the specified dealership" do
+      
+      visit "/dealerships/#{@dealership_1.id}/cars/new"
+
+      fill_in "makemodel", with: "Ford Pinto"
+      fill_in "mpg", with: "18"
+      choose "for_sale_true"
+      fill_in "cost", with: "12000"
+      click_button "Create Car"
+
+      expect(current_path).to eq("/dealerships/#{@dealership_1.id}/cars")
+      expect(page).to have_content("Ford Pinto")
+      expect(page).to have_content("12000")
+      expect(page).to have_content("18")
     end
   end
 end
