@@ -1,13 +1,13 @@
-<head><p><%= link_to "All Dealerships", dealerships_path %></p><br>
-<p><%= link_to "All Cars", cars_path %></p></head>
+<head><p><%= link_to "All Dealerships", dealerships_path %><br>
+<%= link_to "All Cars", cars_path %></p></head>
 <br>
+<%= link_to "Sort Alphabetically", { sort_by: "a-z" }%>
 <h1><%= @dealership.name %></h1>
-
 <% @cars.each do |car| %>
-<h2><ol><%= car.makemodel %> </ol></h2>
-<p><li>MPG: <%= car.mpg %></li></p>
-<p><li>For Sale?: <%= car.for_sale %></li></p>
-<p><li>Cost: <%= car.cost %></li></p>
+<b><ol><%= link_to "#{car.makemodel}", "/cars/#{car.id}" %> </ol></b>
+<li>MPG: <%= car.mpg %></li>
+<li>For Sale?: <%= car.for_sale %></li>
+<li>Cost: <%= car.cost %></li>
 <% end %>
 
 <%= link_to "Create Car", "/dealerships/#{@dealership.id}/cars/new" %>

@@ -1,9 +1,10 @@
-<head><p><%= link_to "All Dealerships", dealerships_path %></p><br>
-<p><%= link_to "All Cars", cars_path %></p></head>
+<head><p><%= link_to "All Dealerships", dealerships_path %><br>
+<%= link_to "All Cars", cars_path %></p></head>
 <br>
-<h1><%= @car.makemodel %></h1>
-<p>Make/Model:<%= @car.makemodel %></p><br>
-<p>MPG: <%= @car.mpg %></p><br>
-<p>For Sale? <%= @car.for_sale %></p><br>
-<p>Yours for only: <%= @car.cost %></p><br>
-<%= link_to "Update Car", "/cars/#{@car.id}/edit" %>
+<h1><%= link_to "#{@car.makemodel}", "/car" %> </h1>
+Make & Model: <%= @car.makemodel %><br>
+MPG: <%= @car.mpg %><br>
+For Sale? <%= @car.for_sale %><br>
+Yours for only: <%= @car.cost %><br>
+<%= link_to "Delete #{@car.makemodel}", "/cars/#{@car.id}/delete",method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Update Car", "/cars/#{@car.id}/edit" %><br>

@@ -1,11 +1,13 @@
-<head><p><%= link_to "All Dealerships", dealerships_path %></p><br>
-<p><%= link_to "All Cars", cars_path %></p></head>
+<head><p><%= link_to "All Dealerships", dealerships_path %><br>
+<%= link_to "All Cars", cars_path %></p></head>
 <br>
-<a href="/dealerships/<%= @dealership.id %>/cars">Cars at this Dealership</a>
 
 <h1><%= @dealership.name %></h1>
-<p>Year Established: <%= @dealership.year_est %></p>
-<p>Cars in stock?:<%=@dealership.has_stock %></p>
-<p>Stock available: <%= @dealership.cars.size %></p></br>
+<p>Year Established: <%= @dealership.year_est %><br>
+Cars in stock?:<%=@dealership.has_stock %><br>
+Stock available: <%= @dealership.cars.size %><br>
+<a href="/dealerships/<%= @dealership.id %>/cars">Cars at this Dealership</a></p><br>
+<br>
 
-<a href="/dealerships/<%= @dealership.id %>/edit">Edit</a>
+<%= link_to "Edit Dealership", "/dealerships/#{@dealership.id}/edit" %><br>
+<%= button_to "Delete Dealership", "/dealerships/#{@dealership.id}/delete", method: :delete, data: { confirm: "Are you sure?" } %>

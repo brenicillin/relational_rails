@@ -40,4 +40,10 @@ class DealershipsController < ApplicationController
   def edit
     @dealership = Dealership.find(params[:id])
   end
+
+  def destroy
+    dealership = Dealership.find(params[:id])
+    Dealership.destroy(params[:id])
+    redirect_to "/dealerships"
+  end
 end

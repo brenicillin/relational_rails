@@ -8,6 +8,7 @@
   <%= f.text_field :mpg %><br>
   <%= f.label :cost %>
   <%= f.text_field :cost %><br>
+  For Sale?<br>
   <%= f.radio_button :for_sale, "true", checked: @car.for_sale %>
   <%= f.label :for_sale_true, "True" %>
   <%= f.radio_button :for_sale, "false", checked: !@car.for_sale %> 

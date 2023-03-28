@@ -2,8 +2,9 @@
 <p><%= link_to "All Dealerships", dealerships_path %></p><br>
 <p><%= link_to "All Cars", cars_path %></p><br>
 <% @cars.each do |car| %>
-<ol><h2><%= car.makemodel %></h2></ol>
+<ol><h2><%= link_to "#{car.makemodel}", "/cars/#{car.id}" %></h2></ol>
 <li>For Sale?: <%= car.for_sale %></li>
 <li>MPG: <%= car.mpg %></li>
 <li>Price: <%= car.cost %></li>
+<%= link_to "Edit #{car.makemodel}", "/cars/#{car.id}/edit" %>
 <% end %>
